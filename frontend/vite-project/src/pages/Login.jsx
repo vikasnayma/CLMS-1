@@ -4,6 +4,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const Login = () => {
+  const navigation = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -25,8 +26,8 @@ const Login = () => {
       
       const { token } = response.data;
       Cookies.set("token", token , { expires: 1 });
-      
       // Redirect to a protected route or dashboard
+      navigation('/StudentLanding');
     } catch (error) {
       setError("Failed to Login");
     }

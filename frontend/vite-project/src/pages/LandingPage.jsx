@@ -6,10 +6,33 @@ import About from './About';
 import Institutes from './Institutes';
 import Header from '../components/Header';
 import Home from './Home';
+import Cookies from 'js-cookie';
+import StudentHeader from '../Student/components/StudentHeader'
+import StudentHome from '../Student/pages/StudentHome';
 
 const LandingPage = () => {
+
+  const token = Cookies.get("token");
+
+  
+       // will use contional statement in routing based on the token if there is any token exist then that loggd in users header routes will be shown otherwise the  normal routes of the project will be shown.so then i will not need the differenet landing pages for routing.
+
+
   return (
+    
     <>
+    { token ? 
+    <Router>
+    <StudentHeader />
+    <Routes>
+      <Route path="/" element={<StudentHome/>} />
+      <Route path="/institution/:id" element={<h1>Institution Page</h1>} />
+      <Route path="/category/:name" element={<h1>Category Page</h1>} />
+      <Route path="/wishlist" element={<h1>Wishlist Page</h1>} />
+      <Route path="/profile/*" element={<h1>Profile Page</h1>} />
+      <Route path="/logout" element={<h1>Logged Out</h1>} />
+    </Routes>
+  </Router> :
     <Router>
       <Header/>
         <Routes>
@@ -20,6 +43,7 @@ const LandingPage = () => {
         <Route path="About" element={<About />} />
         </Routes>
     </Router>
+    }
     </>
   )
 }
