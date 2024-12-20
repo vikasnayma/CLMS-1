@@ -41,24 +41,20 @@ const StudentHeader = () => {
         {/* Institutions Dropdown */}
         <div className="relative">
           <button
-            onClick={() => toggleDropdown("institution")}
+            onClick={() => navigate("/StudentHome")}
             className="hover:text-purple-700"
           >
-            Institution
+            Dashboard
           </button>
-          {dropdown === "institution" && (
-            <div className="absolute bg-white shadow-md mt-2 py-2 w-40 rounded-md">
-              <NavLink to="/institution/1" className="block px-4 py-2 hover:bg-gray-100">
-                Institution 1
-              </NavLink>
-              <NavLink to="/institution/2" className="block px-4 py-2 hover:bg-gray-100">
-                Institution 2
-              </NavLink>
-              <NavLink to="/institution/3" className="block px-4 py-2 hover:bg-gray-100">
-                Institution 3
-              </NavLink>
-            </div>
-          )}
+        </div>
+
+        <div className="relative">
+          <button
+            onClick={() => navigate("/Institutes")}
+            className="hover:text-purple-700"
+          >
+            Institutes
+          </button>
         </div>
 
         {/* Categories Dropdown */}
@@ -98,9 +94,9 @@ const StudentHeader = () => {
             My Profile
           </button>
           {dropdown === "profile" && (
-            <div className="absolute bg-white shadow-md mt-2 py-2 w-40 rounded-md">
+            <div className="absolute bg-white shadow-md mt-2 py-2 w-30 rounded-md">
               <NavLink to="/profile/dashboard" className="block px-4 py-2 hover:bg-gray-100">
-                Dashboard
+                Edit Profile
               </NavLink>
               <NavLink to="/profile/settings" className="block px-4 py-2 hover:bg-gray-100">
                 Settings
