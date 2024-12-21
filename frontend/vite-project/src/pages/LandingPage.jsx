@@ -7,8 +7,17 @@ import Institutes from './Institutes';
 import Header from '../components/Header';
 import Home from './Home';
 import Cookies from 'js-cookie';
-import StudentHeader from '../Student/components/StudentHeader'
+import StudentHeader from '../Student/components/StudentHeader';
+import InstitutionHeader from '../InstitutionAdmin/components/InstitutionHeader';
 import StudentHome from '../Student/pages/StudentHome';
+import Courses from '../InstitutionAdmin/pages/Courses';
+import Students from '../InstitutionAdmin/pages/Students';
+import Instructors from '../InstitutionAdmin/pages/Instructors';
+import Transaction from '../InstitutionAdmin/pages/Transaction';
+import Collaboration from '../InstitutionAdmin/pages/Collaboration';
+import Institutiondashboard from '../InstitutionAdmin/pages/Institutiondashboard';
+import CourseDetail from '../InstitutionAdmin/pages/CourseDetails';
+import EditCoursepage from '../InstitutionAdmin/pages/EditCoursepage';
 
 const LandingPage = () => {
 
@@ -21,7 +30,7 @@ const LandingPage = () => {
   return (
     <>
       <Router>
-        { token ? <StudentHeader/> : <Header /> }
+        { token ? <InstitutionHeader/> : <Header /> }
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="Institutes" element={<Institutes />} />
@@ -34,6 +43,14 @@ const LandingPage = () => {
           <Route path="Login" element={<Login />} />
           <Route path="Institutes" element={<Institutes />} />
           <Route path="About" element={<About />} />
+          <Route path="Courses" element={<Courses />} />
+          <Route path="Students" element={<Students />} />
+          <Route path="Transaction" element={<Transaction />} />
+          <Route path="Instructors" element={<Instructors />} />
+          <Route path="Collaboration" element={<Collaboration />} />
+          <Route path="Institutiondashboard" element={<Institutiondashboard/>}/>
+          <Route path="/course/:id" element={<CourseDetail />} />
+          <Route path='/EditCoursepage' element={<EditCoursepage />}/>
         </Routes>
       </Router>
     </>

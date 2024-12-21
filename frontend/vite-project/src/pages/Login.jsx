@@ -27,7 +27,7 @@ const Login = () => {
       const { token } = response.data;
       Cookies.set("token", token , { expires: 1 });
       // Redirect to a protected route or dashboard
-      navigation('/StudentLanding');
+      navigation('/Institutiondashboard');
     } catch (error) {
       setError("Failed to Login");
     }

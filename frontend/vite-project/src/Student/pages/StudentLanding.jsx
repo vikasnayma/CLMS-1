@@ -7,6 +7,7 @@ import StudentHome from './StudentHome';
 const StudentLanding = () => {
   return (
     <>
+    <StudentHome/>
     </>
   )
 }

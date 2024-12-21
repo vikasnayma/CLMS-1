@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import userRouter from "./routes/userroutes.js";
+import otherRouter from "./routes/otherRoutes.js";
 
 dotenv.config({});
 const app = express();
@@ -20,6 +21,7 @@ app.use(cors({
 
 
 app.use("/user" , userRouter);
+app.use("/api" , otherRouter);
 
 connectMongoDb('mongodb://127.0.0.1:27017/clmsdb')
 .then(() => console.log("MongoDb Connected"))
